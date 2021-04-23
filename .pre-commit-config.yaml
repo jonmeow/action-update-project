@@ -1,0 +1,36 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 6e2418c5521b7d606e72914dced3253f9ace1205 # frozen: v3.4.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+      - id: trailing-whitespace
+
+  - repo: https://github.com/google/pre-commit-tool-hooks
+    rev: 1d04a2848ac54d64bd6474ccec69aac45fa88414 # frozen: v1.1.1
+    hooks:
+      - id: check-google-doc-style
+      - id: markdown-toc
+  - repo: https://github.com/codespell-project/codespell
+    rev: 67c489d36dd4c52cbb9e4755d90c35c6231842ef # frozen: v2.0.0
+    hooks:
+      - id: codespell
+        args: ['-I', '.codespell_ignore']
+  # Formatters should be run late so that they can re-format any prior changes.
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: 8e0d199f4004a7f226ed7974fc3883d9c702bded # frozen: v2.2.1
+    hooks:
+      - id: prettier
+
+exclude: '^(node_modules/.*)$'

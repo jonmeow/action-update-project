@@ -1,0 +1,21 @@
+name: 'Update project'
+description: 'Updates the project and column'
+branding:
+  icon: 'tag'
+  color: 'blue'
+inputs:
+  project_url:
+    description: 'URL of the project to move to.'
+    required: true
+  column_name:
+    description: 'Name of column to move to.'
+    required: true
+  allow_create_card:
+    description: 'Set to true to allow card creation.'
+    default: false
+  github_token:
+    description: 'The GITHUB_TOKEN secret to use when authenticating.'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
