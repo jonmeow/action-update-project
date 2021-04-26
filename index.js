@@ -134,11 +134,11 @@ async function run() {
 
     // Do the actual move.
     if (card) {
-      moveCard(octokit, card.databaseId, columnId);
+      await moveCard(octokit, card.databaseId, columnId);
     } else if (allowCreateCard) {
       console.log('No card found, allow_create_card is false.');
     } else {
-      createCard(octokit, pr.number, columnId);
+      await createCard(octokit, pr.number, columnId);
     }
     console.log('Done!');
   } catch (error) {
